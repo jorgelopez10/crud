@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProfesoresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProfesoresLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{profesoresController.selected.cedula}" title="#{bundle.CreateProfesoresTitle_cedula}" required="true" requiredMessage="#{bundle.CreateProfesoresRequiredMessage_cedula}"/>
+                    <h:outputLabel value="#{bundle.CreateProfesoresLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{profesoresController.selected.nombre}" title="#{bundle.CreateProfesoresTitle_nombre}" required="true" requiredMessage="#{bundle.CreateProfesoresRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateProfesoresLabel_apellidos}" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{profesoresController.selected.apellidos}" title="#{bundle.CreateProfesoresTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateProfesoresRequiredMessage_apellidos}"/>
+                    <h:outputLabel value="#{bundle.CreateProfesoresLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{profesoresController.selected.telefono}" title="#{bundle.CreateProfesoresTitle_telefono}" required="true" requiredMessage="#{bundle.CreateProfesoresRequiredMessage_telefono}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{profesoresController.create}" value="#{bundle.CreateProfesoresSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{profesoresController.prepareList}" value="#{bundle.CreateProfesoresShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProfesoresIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
